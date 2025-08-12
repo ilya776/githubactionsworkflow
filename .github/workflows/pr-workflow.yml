@@ -1,4 +1,4 @@
-name: Workflow triggered by ${{ github.actor }}
+name: Workflow triggered by user
 
 on:
   pull_request:
