@@ -1,7 +1,7 @@
-name: Workflow triggered by user
+name: Workflow triggered by {{$github.author.name}} on pull request
 
 on:
-  pull_request:
+  pull_request
 
 env:
   GITHUB_ACTIONS: true
