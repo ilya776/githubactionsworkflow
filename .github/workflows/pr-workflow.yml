@@ -1,6 +1,7 @@
-name: Workflow triggered by ${[$github.author]} on PRs
+name: CI Test Workflow
 
-on: [pull_request]
+on:
+  pull_request
 
 env:
   GITHUB_ACTIONS: true
@@ -9,6 +10,10 @@ jobs:
   github-task-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Author name
+        run: |
+          echo "Author name: ${{ github.actor }}"
+
       - name: Show GITHUB_ACTIONS environment variable
         run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
 
@@ -18,5 +23,5 @@ jobs:
           echo "Repository: ${{ github.repository }}"
 
       - name: Show triggering event
-        run:
+        run: |
           echo "Event name: ${{ github.event_name }}"
