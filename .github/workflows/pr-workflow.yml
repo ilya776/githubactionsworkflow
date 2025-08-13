@@ -1,4 +1,4 @@
-name: Workflow triggered by {{$github.author.name}} on pull request
+name: CI Test Workflow
 
 on:
   pull_request
@@ -10,6 +10,10 @@ jobs:
   github-task-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Author name
+        run: |
+          echo "Author name: ${{ github.actor }}"
+
       - name: Show GITHUB_ACTIONS environment variable
         run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
 
